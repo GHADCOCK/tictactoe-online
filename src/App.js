@@ -1,9 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
+import TikTakToeBoard from "./components/content/TikTakToeBoard";
 function App() {
   return (
     <div className="App">
+      <TikTakToeBoard />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

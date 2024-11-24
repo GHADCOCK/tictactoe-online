@@ -16,8 +16,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-// Use PORT provided in environment or default to 3000
-const port = process.env.PORT || 3000;
+// Use PORT provided in environment or default to 8080
+const port = process.env.PORT || 8080;
 
 // Listen on `port` and 0.0.0.0
 app.listen(port, "0.0.0.0", () => {

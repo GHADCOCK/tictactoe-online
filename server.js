@@ -3,6 +3,11 @@ const path = require("path");
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
+
 // Serve static files from the "build" directory
 app.use(express.static(path.join(__dirname, "build")));
 

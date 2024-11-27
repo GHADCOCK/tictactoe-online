@@ -30,7 +30,7 @@ export default function TikTakToeBoard(props) {
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>TikTakToe Game!</h1>
       <p>Just a TikTakToe board!</p>
-      <Button variant="contained" onClick={() => {console.log("Test signal from button.");}}>Send a Test Signal!</Button>
+      <Button variant="primary" onClick={() => {console.log("Test signal from button.");}}>Send a Test Signal!</Button>
     </div>
   );
 }

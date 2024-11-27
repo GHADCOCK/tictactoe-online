@@ -1,6 +1,6 @@
 // eslint-disable-next-line
-import { useEffect, useState, Text, View,  Alert } from "react";
-import { Button } from "react-bootstrap/Button";
+import { useEffect, useState, Text, View, Alert } from "react";
+import { Button } from "react-bootstrap";
 // TEST
 export default function TikTakToeBoard(props) {
   useEffect(() => {
@@ -31,7 +31,14 @@ export default function TikTakToeBoard(props) {
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>TikTakToe Game!</h1>
       <p>Just a TikTakToe board!</p>
-      <Button variant="primary" onClick={() => {console.log("Test signal from button.");}}>Send a Test Signal!</Button>
+      <Button
+        variant="primary"
+        onClick={() => {
+          console.log("Test signal from button.");
+        }}
+      >
+        Send a Test Signal!
+      </Button>
     </div>
   );
 }

@@ -3,6 +3,10 @@ import { useEffect, useState, Text, View, Alert } from "react";
 import { Button } from "react-bootstrap";
 // TEST
 export default function TikTakToeBoard(props) {
+  function sendToServer() {
+    console.log("THISS SHOULD WORK PLS");
+  }
+
   useEffect(() => {
     fetch("https://tiktaktoe-kttp.onrender.com/api/message")
       .then((res) => {
@@ -34,7 +38,7 @@ export default function TikTakToeBoard(props) {
       <Button
         variant="primary"
         onClick={() => {
-          console.log("Test signal from button.");
+          sendToServer();
         }}
       >
         Send a Test Signal!

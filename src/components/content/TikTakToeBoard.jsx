@@ -24,7 +24,7 @@ export default function TikTakToeBoard(props) {
       });
   }, []);
 
-  console.log("ASDJOFIJSDIOFJ");
+  console.log("Test");
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>

@@ -1,5 +1,6 @@
 // eslint-disable-next-line
-import { useEffect, useState, Text, View, Button, Alert } from "react";
+import { useEffect, useState, Text, View,  Alert } from "react";
+import { Button } from "react-bootstrap/Button";
 // TEST
 export default function TikTakToeBoard(props) {
   useEffect(() => {

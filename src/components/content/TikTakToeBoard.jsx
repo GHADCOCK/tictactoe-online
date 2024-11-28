@@ -8,7 +8,7 @@ export default function TikTakToeBoard(props) {
 
     try {
       const response = await fetch(
-        "tiktaktoe-production-479e.up.railway.app/api/message",
+        "https://tiktaktoe-production-479e.up.railway.app/api/message",
         {
           method: "POST",
           headers: {

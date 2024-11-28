@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/sendMessage", (req, res) => {
+app.post("/api/message", (req, res) => {
   const { message } = req.body; // Extract the "message" field from the request body
   console.log("Received message from client:", message);
 

@@ -13,13 +13,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/message", body("message").isString().notEmpty(), (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+app.post("/api/message", (req, res) => {
   const { message } = req.body;
-  console.log("Received message from client:", message);
+  console.log("Message received:", message);
   res.status(200).json({ status: "success", receivedMessage: message });
 });
 

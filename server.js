@@ -1,12 +1,23 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 // Middleware to log all incoming requests
+app.use(bodyParser.json());
+
 app.use((req, res, next) => {
   console.log(`[DEBUG] Incoming request: ${req.method} ${req.url}`);
   next();
+});
+
+app.post("/api/sendMessage", (req, res) => {
+  const { message } = req.body; // Extract the "message" field from the request body
+  console.log("Received message from client:", message);
+
+  // Respond to the client
+  res.status(200).json({ status: "success", receivedMessage: message });
 });
 
 // Health check endpoint for Railway to monitor container status

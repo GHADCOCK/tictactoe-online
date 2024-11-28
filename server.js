@@ -1,4 +1,5 @@
 const express = require("express");
+const { body, validationResult } = require("express-validator");
 const path = require("path");
 const bodyParser = require("body-parser");
 
@@ -12,11 +13,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/message", (req, res) => {
-  const { message } = req.body; // Extract the "message" field from the request body
+app.post("/api/message", body("message").isString().notEmpty(), (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const { message } = req.body;
   console.log("Received message from client:", message);
-
-  // Respond to the client
   res.status(200).json({ status: "success", receivedMessage: message });
 });
 
@@ -39,7 +42,7 @@ const port = process.env.PORT || 8080;
 // Keep the container alive with periodic heartbeat logs
 setInterval(() => {
   console.log(`[DEBUG] Server heartbeat: container is active on port ${port}`);
-}, 10000); // Logs every 10 seconds
+}, 60000); // Logs every 10 seconds
 
 // Listen on `port` and 0.0.0.0 for external connections
 app.listen(port, "0.0.0.0", () => {

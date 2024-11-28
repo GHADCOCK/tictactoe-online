@@ -3,15 +3,30 @@ import { useEffect, useState, Text, View, Alert } from "react";
 import { Button } from "react-bootstrap";
 // TEST
 export default function TikTakToeBoard(props) {
-  function sendToServer() {
-    const payload = { message: "Hello, server!"};
-    fetch("https://tiktaktoe-kttp.onrender.com/api/message",{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    })
+  async function sendToServer() {
+    const payload = { message: "Hello, server!" };
+
+    try {
+      const response = await fetch(
+        "https://tiktaktoe-kttp.onrender.com/api/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+
+      const data = await response.json(); // Assuming the response is JSON
+      console.log("Server response:", data);
+    } catch (error) {
+      console.error("Failed to send message:", error);
+    }
   }
 
   // useEffect(() => {

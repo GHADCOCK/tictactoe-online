@@ -5,9 +5,6 @@ import { Button } from "react-bootstrap";
 export default function TikTakToeBoard(props) {
   function sendToServer() {
     const payload = { message: "Hello, server!"};
-  }
-
-  useEffect(() => {
     fetch("https://tiktaktoe-kttp.onrender.com/api/message",{
       method: "POST",
       headers: {
@@ -15,25 +12,28 @@ export default function TikTakToeBoard(props) {
       },
       body: JSON.stringify(payload),
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error: ${res.status}`);
-        }
-        return res.text(); // Temporarily parse as plain text
-      })
-      .then((text) => {
-        console.log("Raw response body:", text); // Log raw body
-        try {
-          const data = JSON.parse(text); // Parse JSON
-          console.log("Parsed data:", data);
-        } catch (err) {
-          console.error("JSON parsing error:", err);
-        }
-      })
-      .catch((err) => {
-        console.error("Error:", err);
-      });
-  }, []);
+  }
+
+  // useEffect(() => {
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error(`HTTP error: ${res.status}`);
+  //       }
+  //       return res.text(); // Temporarily parse as plain text
+  //     })
+  //     .then((text) => {
+  //       console.log("Raw response body:", text); // Log raw body
+  //       try {
+  //         const data = JSON.parse(text); // Parse JSON
+  //         console.log("Parsed data:", data);
+  //       } catch (err) {
+  //         console.error("JSON parsing error:", err);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error:", err);
+  //     });
+  // }, []);
 
   console.log("Test");
 
